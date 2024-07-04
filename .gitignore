@@ -30,3 +30,18 @@
 *.exe
 *.out
 *.app
+
+# Visual Studio specific files
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Other
+*.log
