@@ -2,12 +2,12 @@
 
 #include <Windows.h>
 
-#define	DEFAULT_CHUNK_CAPACITY	10
+#define	DEFAULT_CHUNK_CAPACITY	1000
 
 #define DEBUG					1
-#define PROFILE					2
-#define MEMORY_FLOW_CHECK		4
-#define MEMORY_AUTO_SCALE		8
+#define MEMORY_CORRUPTED_CHECK	2
+#define MEMORY_TIME_SCALE		4
+#define MEMORY_SIZE_SCALE		8
 
 #define OPTION_5				16
 #define OPTION_6				32
@@ -43,6 +43,9 @@ struct memoryBlock {
 template <typename T>
 struct memoryChunk
 {
+	/// <summary>
+	/// 기본 생성자, empty chunk 생성.
+	/// </summary>
 	memoryChunk()
 	{
 		next = nullptr;
@@ -51,6 +54,11 @@ struct memoryChunk
 		capacity = 0;
 		lastUsedTick = GetTickCount64();
 	}
+
+	/// <summary>
+	/// size만큼의 메모리 블록을 가지고있는 청크 생성 (fill chunk 생성)
+	/// </summary>
+	/// <param name="size"></param>
 	memoryChunk(MCCAPACITY size)
 	{
 		next = nullptr;
@@ -69,6 +77,14 @@ struct memoryChunk
 		capacity = size;
 		lastUsedTick = GetTickCount64();
 	}
+
+	/// <summary>
+	/// 기 생성된 메모리 블록의 연결리스트를 담는 청크 초기화.
+	/// placement new 지원목적.
+	/// </summary>
+	/// <param name="start"> 시작 메모리블록 </param>
+	/// <param name="end"> 종료 메모리블록 </param>
+	/// <param name="size"> 메모리 블록의 갯수 </param>
 	memoryChunk(memoryBlock<T>* start, memoryBlock<T>* end, MCCAPACITY size)
 	{
 		next = nullptr;
@@ -78,6 +94,10 @@ struct memoryChunk
 		capacity = size;
 		lastUsedTick = GetTickCount64();
 	}
+
+	/// <summary>
+	/// 청크 삭제시 내부의 메모리 블록또한 삭제되게 하기위한 소멸자.
+	/// </summary>
 	~memoryChunk()
 	{
 		memoryBlock<T>* nextHead;
