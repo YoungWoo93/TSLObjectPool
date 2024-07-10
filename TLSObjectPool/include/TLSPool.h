@@ -4,11 +4,13 @@
 #include "MainPool.h"
 
 //#define CHUNKCACHE_DEBUG
+//#define TLSPOOL_DEBUG
 
 #ifdef _DEBUG_ALL_
 
 #ifndef CHUNKCACHE_DEBUG
 #define CHUNKCACHE_DEBUG
+#define TLSPOOL_DEBUG
 #endif
 
 #endif
@@ -55,18 +57,17 @@ public :
 	T* alloc();
 	void free(T*);
 	
-#ifdef _DEBUG
+#ifdef TLSPOOL_DEBUG
 	void print();
-#endif //_DEBUG
+#endif //TLSPOOL_DEBUG
 
 private:
 	bool isError(memoryBlock<T>*);
-	bool flowCheck(memoryBlock<T>*);
+	bool corruptedCheck(memoryBlock<T>*);
 	bool poolCheck(memoryBlock<T>*);
 
 	void allocateBlocks();
 	void releaseBlocks();
-	void releaseBlocks(memoryBlock<T>* _head, memoryBlock<T>* _tail, size_t _size);
 	
 
 public:
@@ -75,13 +76,13 @@ public:
 	poolInfo						info;	//8경계, 24바이트
 	size_t							size;
 
-#ifdef _DEBUG
+#ifdef TLSPOOL_DEBUG
 	size_t							allocSize;
 	size_t							totalAllocSize;
 	size_t							totalFreeSize;
 	size_t							allocChunkSize;
 	size_t							freeChunkSize;
-#endif
+#endif //TLSPOOL_DEBUG
 
 private:
 	chunkCache<memoryBlock<T>*>		cache;	//8경계, 32바이트
