@@ -13,26 +13,47 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\test">
+      <UniqueIdentifier>{ff0a1fdb-c865-428b-a065-3ea0c21b4a05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\dev">
+      <UniqueIdentifier>{6d8ef416-2ed6-469f-99e1-8278294fb534}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\dev">
+      <UniqueIdentifier>{c1af6998-a59c-4276-b878-e671ffe7df0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tests\test-Main.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\test</Filter>
     </ClCompile>
-    <ClCompile Include="src\MainPool.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="src\MainPool.hpp">
+      <Filter>소스 파일\dev</Filter>
     </ClCompile>
-    <ClCompile Include="src\TLSPool.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="src\TLSPool.hpp">
+      <Filter>소스 파일\dev</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TLSObjectPool.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="include\MainPool.h">
+      <Filter>헤더 파일\dev</Filter>
+    </ClInclude>
     <ClInclude Include="include\TLSPool.h">
+      <Filter>헤더 파일\dev</Filter>
+    </ClInclude>
+    <ClInclude Include="include\define.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="include\MainPool.h">
+    <ClInclude Include="src\chunkStack.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockCollector.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\chunkCache.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
