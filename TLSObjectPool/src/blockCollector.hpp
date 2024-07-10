@@ -1,4 +1,5 @@
 #pragma once
+#include <Windows.h>
 
 #include "../include/MainPool.h"
 
@@ -12,6 +13,7 @@ MainPool<T>::blockCollector::blockCollector(MCCAPACITY capacity, MainPool<T>* ma
 	head = nullptr;
 	tail = nullptr;
 	pool = mainPool;
+	lock = SRWLOCK_INIT;
 
 	chunkTail = nullptr;
 }
@@ -33,6 +35,7 @@ MainPool<T>::blockCollector::~blockCollector()
 template <typename T>
 bool MainPool<T>::blockCollector::collect(memoryBlock<T>* _head, memoryBlock<T>* _tail, MCCAPACITY _size)
 {
+	AcquireSRWLockExclusive(&lock);
 	if (head == nullptr) //콜렉터에 노드가 전혀 없을때 진입
 	{
 		head = _head;
@@ -60,7 +63,7 @@ bool MainPool<T>::blockCollector::collect(memoryBlock<T>* _head, memoryBlock<T>*
 			tail = tail->next;
 		}
 	}
-
+	ReleaseSRWLockExclusive(&lock);
 	return true;
 }
 

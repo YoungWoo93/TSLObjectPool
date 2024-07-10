@@ -6,8 +6,8 @@
 
 #define DEBUG					1
 #define MEMORY_CORRUPTED_CHECK	2
-#define MEMORY_TIME_SCALE		4
-#define MEMORY_SIZE_SCALE		8
+#define MEMORY_TIME_SCALE		4		// 마지막으로 사용된지 일정 시간이 지난 (= 장시간 미사용) 청크를 OS로 반환하는 옵션
+#define MEMORY_SIZE_SCALE		8		// 일정 갯수 이상의 메모리 청크가 쌓였을때 (= 많은 메모리 사용) 정해진 갯수를 OS로 반환하는 옵션
 
 #define OPTION_5				16
 #define OPTION_6				32

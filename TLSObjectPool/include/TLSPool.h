@@ -10,9 +10,10 @@
 
 #ifndef CHUNKCACHE_DEBUG
 #define CHUNKCACHE_DEBUG
+#endif
+#ifndef TLSPOOL_DEBUG
 #define TLSPOOL_DEBUG
 #endif
-
 #endif
 
 template <typename BLOCKPTR>
@@ -73,7 +74,7 @@ private:
 public:
 	MainPool<T>&					mainPool;
 
-	poolInfo						info;	//8경계, 24바이트
+	poolInfo						info;
 	size_t							size;
 
 #ifdef TLSPOOL_DEBUG
@@ -85,7 +86,7 @@ public:
 #endif //TLSPOOL_DEBUG
 
 private:
-	chunkCache<memoryBlock<T>*>		cache;	//8경계, 32바이트
+	chunkCache<memoryBlock<T>*>		cache;
 	long long int					offset;
 
 	memoryBlock<T>*					head;
