@@ -1,5 +1,22 @@
 #pragma once
 
+//#define _DEBUG_ALL_
+//#define TLSOBJECTPOOL_DEBUG
+
+#ifdef _DEBUG_ALL_
+
+#ifndef CHUNKCACHE_DEBUG
+#define CHUNKCACHE_DEBUG
+#endif
+#ifndef TLSPOOL_DEBUG
+#define TLSPOOL_DEBUG
+#endif
+#ifndef TLSOBJECTPOOL_DEBUG
+#define TLSOBJECTPOOL_DEBUG
+#endif
+
+#endif
+
 #include "include/define.h"
 #include "include/MainPool.h"
 #include "include/TLSPool.h"
@@ -53,7 +70,7 @@ public:
 		delete objectPool;
 	}
 
-#ifdef _DEBUG
+#ifdef TLSOBJECTPOOL_DEBUG
 	static void printTLSPool()
 	{
 		if (objectPool == nullptr)
@@ -61,7 +78,7 @@ public:
 
 		objectPool->print();
 	}
-#endif //_DEBUG
+#endif //TLSOBJECTPOOL_DEBUG
 
 private:
 	TLSObjectPool() {};
