@@ -6,8 +6,8 @@
 
 using namespace std;
 
-vector<int*> garbage;
 
+vector<int*> garbage;
 int test1()
 {
 	//cout << "test" << endl;
@@ -49,20 +49,11 @@ int test1()
 	return 0;
 }
 
+
 int test2()
 {
-	auto t = TLSObjectPool<int>::alloc();
-	TLSObjectPool<double>::free((double*)t);
-
-	return 0;
-}
-
-
-int main()
-{
-	test2();
-	return 0;
-	for (int i = 0; i < 1000000; i++)
+	int testCycle = 500000;
+	for (int i = 0; i < testCycle; i++)
 	{
 		std::thread testThread(test1);
 
@@ -74,13 +65,31 @@ int main()
 		}
 		garbage.clear();
 
-		if (i % 100000 == 0)
+		if (i % (testCycle / 100) == 0)
 		{
-			cout << i / 10000 << "%\t" << TLSObjectPool<int>::usingSize() << "\t/\t" << TLSObjectPool<int>::usableSize() << endl;
+			cout << i / (testCycle / 100) << "%\t" << TLSObjectPool<int>::usingSize() << "\t/\t" << TLSObjectPool<int>::usableSize() << endl;
 		}
 	}
 
 	cout << TLSObjectPool<int>::usingSize() << "\t/\t" << TLSObjectPool<int>::usableSize() << endl;
+
+	return 0;
+}
+
+
+
+int test3()
+{
+	auto t = TLSObjectPool<int>::alloc();
+	TLSObjectPool<double>::free((double*)t);
+
+	return 0;
+}
+
+
+int main()
+{
+	test3();
 	
 	return 0;
 }

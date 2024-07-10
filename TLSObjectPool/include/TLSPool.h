@@ -3,24 +3,33 @@
 #include "define.h"
 #include "MainPool.h"
 
+//#define CHUNKCACHE_DEBUG
+
+#ifdef _DEBUG_ALL_
+
+#ifndef CHUNKCACHE_DEBUG
+#define CHUNKCACHE_DEBUG
+#endif
+
+#endif
 
 template <typename BLOCKPTR>
 class chunkCache
 {
 public:
-	chunkCache(unsigned int maxChunkCount = 1);
+	chunkCache(unsigned int maxChunkCount = 2);
 	~chunkCache();
 
 	void push_back(BLOCKPTR node);
 	
 	BLOCKPTR pop_front();
 	BLOCKPTR pop_back();
-	BLOCKPTR Peek_front();
-	BLOCKPTR Peek_back();
+	BLOCKPTR peek_front();
+	BLOCKPTR peek_back();
 
-#ifdef _DEBUG
+#ifdef CHUNKCACHE_DEBUG
 	void print();
-#endif //_DEBUG
+#endif //CHUNKCACHE_DEBUG
 
 private:
 	inline BLOCKPTR* shiftFront(BLOCKPTR* cur);

@@ -6,20 +6,25 @@
 /// chunkCache class
 /// 
 /// 청크단위 반환, 할당을 할때 앞에서부터 선형 탐색을 하는것이 아니라 헤드로부터 청크 캐퍼시티의 배수 단위로 떨어진 노드를 캐싱하는 용도.
+///		-> 전체 프로세스 시간중 메모리 블록을 N개 선형탐색 하는 시간은 별 것 아니겠지만, 캐싱이 가능하다면 더 좋을 것이라 판단.
 /// 
 /// 메모리가 여러 스레드에서 사용되게 되고, 이후 OS로의 메모리 반환까지 고려하면 필연적으로 메모리의 파편화가 일어 날 수 밖에 없음
 /// 이 파편화의 악영향중 캐시메모리의 효율 감소를 극복하기 위해 도입한 아이디어
 ///		-> 직접 N개를 선형 탐색 하다보면 연결리스트 방식인 이상 다수의 캐시라인에 영향을 미칠 수 밖에 없다고 판단.
 /// 
+/// TLSPool은 일정 숫자 이상의 메모리 블록을 소유하게 되면 메모리를 mainPool로 반환하기 때문에 소유할 수 있는 최대 메모리 블록의 수가 정해져있음
+/// 그렇기 때문에 정해진 크기의 배열에 해제를 위한 메모리 주소를 저장해 두는 형태 (환형 큐 형태)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 template <typename BLOCKPTR>
 chunkCache<BLOCKPTR>::chunkCache(unsigned int maxChunkCount)
 {
 	caches = new BLOCKPTR[maxChunkCount];
-#ifdef _DEBUG
+#ifdef CHUNKCACHE_DEBUG
 	memset(caches, 0, sizeof(BLOCKPTR) * maxChunkCount);
-#endif //_DEBUG
+#endif //CHUNKCACHE_DEBUG
 
 	curSize = 0;
 	maxSize = maxChunkCount;
@@ -57,9 +62,9 @@ BLOCKPTR chunkCache<BLOCKPTR>::pop_front()
 
 	BLOCKPTR ret = *head;
 
-#ifdef _DEBUG
+#ifdef CHUNKCACHE_DEBUG
 	* head = 0;
-#endif //_DEBUG
+#endif //CHUNKCACHE_DEBUG
 
 	head = shiftRear(head);
 	curSize--;
@@ -82,9 +87,9 @@ BLOCKPTR chunkCache<BLOCKPTR>::pop_back()
 	curSize--;
 
 
-#ifdef _DEBUG
+#ifdef CHUNKCACHE_DEBUG
 	*tail = 0;
-#endif //_DEBUG
+#endif //CHUNKCACHE_DEBUG
 
 	return ret;
 }
@@ -94,7 +99,7 @@ BLOCKPTR chunkCache<BLOCKPTR>::pop_back()
 /// </summary>
 /// <returns> 확인된 값 (주소 값), 비어있을 시 nullptr </returns>
 template <typename BLOCKPTR>
-BLOCKPTR chunkCache<BLOCKPTR>::Peek_front()
+BLOCKPTR chunkCache<BLOCKPTR>::peek_front()
 {
 	if (curSize == 0)
 		return nullptr;
@@ -107,7 +112,7 @@ BLOCKPTR chunkCache<BLOCKPTR>::Peek_front()
 /// </summary>
 /// <returns> 확인된 값 (주소 값), 비어있을 시 nullptr </returns>
 template <typename BLOCKPTR>
-BLOCKPTR chunkCache<BLOCKPTR>::Peek_back()
+BLOCKPTR chunkCache<BLOCKPTR>::peek_back()
 {
 	if (curSize == 0)
 		return nullptr;
@@ -148,7 +153,7 @@ inline BLOCKPTR* chunkCache<BLOCKPTR>::shiftRear(BLOCKPTR* cur)
 /// 
 /// 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#ifdef _DEBUG
+#ifdef CHUNKCACHE_DEBUG
 #include <iostream>
 
 template <typename BLOCKPTR>
@@ -165,4 +170,4 @@ void chunkCache<BLOCKPTR>::print()
 
 	std::cout << std::endl;
 }
-#endif //_DEBUG
+#endif //CHUNKCACHE_DEBUG

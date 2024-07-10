@@ -145,7 +145,7 @@ void TLSPool<T>::releaseBlocks()
 	memoryBlock<T>* releaseHead;
 	MCCAPACITY		releaseSize;
 
-	if (cache.Peek_front() == nullptr)	// 1개 이상의 청크가 없음, 즉 조각 반환 상태, 남은걸 다 반환할때만 타는 분기
+	if (cache.peek_front() == nullptr)	// 1개 이상의 청크가 없음, 즉 조각 반환 상태, 남은걸 다 반환할때만 타는 분기
 	{
 		nextTail = nullptr;
 		releaseHead = head;
