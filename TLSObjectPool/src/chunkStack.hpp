@@ -5,9 +5,17 @@
 #include "../include/MainPool.h"
 
 
-#define		MAKE_KEY(ptr, no)	((no << 48) | (intptr_t)ptr)
+#define		MAKE_KEY(ptr, no)	((no << 48) | (intptr_t)ptr)		// 락프리 스택의 ABA 문제 해결을 위한 key 매크로
 #define		MAKE_PTR(key)		(USER_MODE_MASK & (intptr_t)key)
 
+/// <summary>
+/// 락프리 스택의 pop 동작.
+/// 
+/// chunkStack은 mainPool 내의 인스턴스이며, 멀티 스레드 환경에서 직접적인 경합이 발생하는 부분이다.
+/// 동기화 객체 대신 락프리를 이용해 동기화 이슈를 대응한다.
+/// 
+/// sharedLock이 존재하는 이유는 define에 정의된 MEMORY_TIME_SCALE, MEMORY_SIZE_SCALE 을 지원하기 위함이다.
+/// </summary>
 template <typename T>
 memoryChunk<T>* chunkStack<T>::pop()
 {
@@ -39,6 +47,14 @@ memoryChunk<T>* chunkStack<T>::pop()
 	return ret;
 }
 
+/// <summary>
+/// 락프리 스택의 push 동작.
+/// 
+/// chunkStack은 mainPool 내의 인스턴스이며, 멀티 스레드 환경에서 직접적인 경합이 발생하는 부분이다.
+/// 동기화 객체 대신 락프리를 이용해 동기화 이슈를 대응한다.
+/// 
+/// sharedLock이 존재하는 이유는 define에 정의된 MEMORY_TIME_SCALE, MEMORY_SIZE_SCALE 을 지원하기 위함이다.
+/// </summary>
 template <typename T>
 void chunkStack<T>::push(memoryChunk<T>* chunk)
 {
@@ -61,6 +77,11 @@ void chunkStack<T>::push(memoryChunk<T>* chunk)
 	ReleaseSRWLockShared(&lock);
 }
 
+/// <summary>
+/// define.h에 정의된 SCALE 동작을 지원하기 위한 함수.
+/// </summary>
+/// <returns> 삭제된 노드 (= 청크) 의 갯수</returns>
+/*/
 template <typename T>
 int chunkStack<T>::releaseChunk(unsigned int count)
 {
@@ -71,10 +92,10 @@ int chunkStack<T>::releaseChunk(unsigned int count)
 
 	AcquireSRWLockExclusive(&lock);
 	{
-		size_t remainSize = size;
+		long long int remainSize = size;
 		memoryChunk<T>* cur = top;
 
-		while (remainSize > count + 1)
+		while (remainSize >= count)
 		{
 			cur = cur->next;
 			remainSize--;
@@ -98,7 +119,12 @@ int chunkStack<T>::releaseChunk(unsigned int count)
 
 	return erasedCount;
 }
+/*/
 
+/// <summary>
+/// define.h에 정의된 SCALE 동작을 지원하기 위한 함수.
+/// </summary>
+/// <returns> 삭제된 노드 (= 청크) 의 갯수</returns>
 template <typename T>
 int chunkStack<T>::releaseChunk(unsigned long long int idleTime)
 {
@@ -124,6 +150,7 @@ int chunkStack<T>::releaseChunk(unsigned long long int idleTime)
 			{
 				decSize();
 				erasedCount++;
+
 				cur->next = target->next;
 				delete target;
 			}
@@ -135,6 +162,10 @@ int chunkStack<T>::releaseChunk(unsigned long long int idleTime)
 	return erasedCount;
 }
 
+/// <summary>
+/// define.h에 정의된 SCALE 동작을 지원하기 위한 함수.
+/// </summary>
+/// <returns> 삭제된 노드 (= 청크) 의 갯수</returns>
 template <typename T>
 int chunkStack<T>::releaseChunk(memoryChunk<T>* target)
 {
@@ -146,6 +177,8 @@ int chunkStack<T>::releaseChunk(memoryChunk<T>* target)
 		if (cur == target)
 		{
 			decSize();
+			erasedCount = 1;
+
 			top = cur->next;
 			target->~memoryChunk<T>();
 		}
@@ -155,6 +188,7 @@ int chunkStack<T>::releaseChunk(memoryChunk<T>* target)
 				if (cur->next == target) {
 					decSize();
 					erasedCount = 1;
+
 					cur->next = target->next;
 					target->~memoryChunk<T>();
 					break;
