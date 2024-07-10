@@ -45,9 +45,6 @@ struct memoryChunk
 {
 	memoryChunk()
 	{
-		if (blockStart != nullptr)
-			clear();
-
 		next = nullptr;
 		blockStart = nullptr;
 		blockEnd = nullptr;
@@ -56,9 +53,6 @@ struct memoryChunk
 	}
 	memoryChunk(MCCAPACITY size)
 	{
-		if (blockStart != nullptr)
-			clear();
-
 		next = nullptr;
 		blockStart = new memoryBlock<T>();
 
@@ -71,28 +65,31 @@ struct memoryChunk
 		temp->next = new memoryBlock<T>();
 
 		blockEnd = temp->next;
+		blockEnd->next = nullptr;
 		capacity = size;
 		lastUsedTick = GetTickCount64();
 	}
 	memoryChunk(memoryBlock<T>* start, memoryBlock<T>* end, MCCAPACITY size)
 	{
-		if (blockStart != nullptr)
-			clear();
-
 		next = nullptr;
 		blockStart = start;
 		blockEnd = end;
+		blockEnd->next = nullptr;
 		capacity = size;
 		lastUsedTick = GetTickCount64();
 	}
 	~memoryChunk()
 	{
-		clear();
-	}
-	void clear()
-	{
+		memoryBlock<T>* nextHead;
 
+		while (blockStart != nullptr)
+		{
+			nextHead = blockStart->next;
+			delete blockStart;
+			blockStart = nextHead;
+		}
 	}
+
 	memoryChunk* next;
 	memoryBlock<T>* blockStart;
 	memoryBlock<T>* blockEnd;

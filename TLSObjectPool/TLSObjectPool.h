@@ -48,6 +48,11 @@ public:
 		return MainPool<T>::getInstance().usingSize();
 	}
 
+	static void release()
+	{
+		delete objectPool;
+	}
+
 #ifdef _DEBUG
 	static void printTLSPool()
 	{

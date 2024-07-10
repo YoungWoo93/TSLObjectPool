@@ -30,6 +30,9 @@ void MainPool<T>::newBlocks(memoryBlock<T>*& head, memoryBlock<T>*& tail)
 
 	head = (memoryBlock<T>*)(chunk->blockStart);
 	tail = (memoryBlock<T>*)(chunk->blockEnd);
+	
+	chunk->blockStart = nullptr;
+	chunk->blockEnd = nullptr;
 
 	emptyChunks.push(chunk);
 }
@@ -50,7 +53,7 @@ size_t MainPool<T>::usingSize()
 
 template <typename T>
 MainPool<T>::MainPool(MCCAPACITY chunkCapacity, MPOPTION mode) 
-	: emptyChunks(chunkCapacity), fillChunks(chunkCapacity)
+	: emptyChunks(chunkCapacity), fillChunks(chunkCapacity), collector(chunkCapacity, this)
 {
 	info.chunkCapacity = chunkCapacity;
 	info.mode = mode;
@@ -59,5 +62,6 @@ MainPool<T>::MainPool(MCCAPACITY chunkCapacity, MPOPTION mode)
 template <typename T>
 MainPool<T>::~MainPool()
 {
+
 	// 메인풀의 소멸자 호출시점 = 프로세스 종료시점 이므로 생략
 }

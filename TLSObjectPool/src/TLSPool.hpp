@@ -1,4 +1,5 @@
 #pragma once
+#include <stdexcept>
 
 #include "../include/TLSPool.h"
 #include "../include/MainPool.h"
@@ -83,12 +84,8 @@ void TLSPool<T>::free(T* var)
 {
 	memoryBlock<T>* blockPtr = (memoryBlock<T>*)var;
 
-	if (isError(blockPtr)) {
-		// do something
-		// 에러 핸들링 하자
-
-		return;
-	}
+	if (isError(blockPtr))
+		throw std::runtime_error("Attempted to return to the wrong object pool");
 
 #ifdef _DEBUG
 	totalFreeSize++;
@@ -168,6 +165,7 @@ void TLSPool<T>::releaseBlocks()
 	freeChunkSize++;
 #endif //_DEBUG
 
+	tail->next = nullptr;
 	mainPool.releaseBlocks(releaseHead, tail, releaseSize);
 	tail = nextTail;
 	size -= releaseSize;
