@@ -33,6 +33,9 @@
     <ClCompile Include="src\TLSPool.hpp">
       <Filter>소스 파일\dev</Filter>
     </ClCompile>
+    <ClCompile Include="tests\lib\profiler.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TLSObjectPool.h">
@@ -54,6 +57,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\chunkCache.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\lib\profiler.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\test-Main.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

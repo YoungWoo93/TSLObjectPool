@@ -54,6 +54,7 @@ bool MainPool<T>::blockCollector::collect(memoryBlock<T>* _head, memoryBlock<T>*
 		{
 			chunkTail = tail;
 			tail = tail->next;
+			chunkTail->next = nullptr;
 			pool->releaseBlocks(head, chunkTail, chunkCapacity);
 			head = tail;
 			size -= chunkCapacity;

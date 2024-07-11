@@ -189,6 +189,7 @@ void TLSPool<T>::releaseBlocks()
 		for (releaseSize = 1; head != tail; head = head->next, releaseSize++);
 	}
 
+	tail->next = nullptr;
 	mainPool.releaseBlocks(releaseHead, tail, releaseSize);
 	tail = nextTail;
 	size -= releaseSize;
