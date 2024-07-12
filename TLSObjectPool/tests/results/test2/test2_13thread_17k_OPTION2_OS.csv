@@ -1,0 +1,390 @@
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962817560,4120,0,test2_13thread_17k_OPTION2_OS,5590712.200000,5663482.150000,5729604.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962821052,7612,0,test2_13thread_17k_OPTION2_OS,5550316.000000,5657925.437500,5744779.600000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962822112,8672,0,test2_13thread_17k_OPTION2_OS,5470086.000000,5675421.687500,5812287.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962822348,8908,0,test2_13thread_17k_OPTION2_OS,5561779.000000,5670185.300000,5772168.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962828100,14660,0,test2_13thread_17k_OPTION2_OS,5474867.300000,5661728.137500,5850399.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962828452,15012,0,test2_13thread_17k_OPTION2_OS,5444846.200000,5683672.287500,5816888.600000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962832044,18604,0,test2_13thread_17k_OPTION2_OS,5600037.800000,5666056.787500,5743234.300000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962833084,19644,0,test2_13thread_17k_OPTION2_OS,5607079.100000,5666110.000000,5746989.900000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962834436,20996,0,test2_13thread_17k_OPTION2_OS,5459090.300000,5677946.362500,5800890.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962835484,22044,0,test2_13thread_17k_OPTION2_OS,5592156.900000,5670592.012500,5791681.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962836128,22688,0,test2_13thread_17k_OPTION2_OS,5499785.100000,5687884.062500,5812945.900000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962837268,23828,0,test2_13thread_17k_OPTION2_OS,5604618.800000,5661318.250000,5745660.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1443869821962837792,24352,0,test2_13thread_17k_OPTION2_OS,5389244.300000,5716303.275000,5885788.300000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117791899652208,4208,0,test2_13thread_17k_OPTION2_OS,3765199.000000,5441252.412500,5810045.900000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117791899653828,5828,0,test2_13thread_17k_OPTION2_OS,3792746.700000,5431158.962500,5827561.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117791899662688,14688,0,test2_13thread_17k_OPTION2_OS,3848192.800000,5440275.512500,5798043.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117791899669816,21816,0,test2_13thread_17k_OPTION2_OS,3769343.700000,5425239.725000,5756621.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117791899671220,23220,0,test2_13thread_17k_OPTION2_OS,4087675.500000,5426615.987500,5756318.300000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117856324162288,4848,0,test2_13thread_17k_OPTION2_OS,4041077.400000,5438800.137500,5820320.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117856324166564,9124,0,test2_13thread_17k_OPTION2_OS,4319567.800000,5436295.062500,5774557.900000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117856324173996,16556,0,test2_13thread_17k_OPTION2_OS,3811228.800000,5440208.787500,5791093.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117856324175520,18080,0,test2_13thread_17k_OPTION2_OS,3691305.900000,5434427.725000,5772442.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117856324178792,21352,0,test2_13thread_17k_OPTION2_OS,3687397.200000,5409819.687500,5777020.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117856324181400,23960,0,test2_13thread_17k_OPTION2_OS,3749973.000000,5469694.550000,5842294.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117856324182000,24560,0,test2_13thread_17k_OPTION2_OS,4303740.000000,5421816.525000,5864136.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444117856324182464,25024,0,test2_13thread_17k_OPTION2_OS,4003254.800000,5425466.600000,5758783.500000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436505412,2884,0,test2_13thread_17k_OPTION2_OS,5658430.300000,5751340.087500,5839066.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436505968,3440,0,test2_13thread_17k_OPTION2_OS,5605378.400000,5722911.050000,5834433.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436506544,4016,0,test2_13thread_17k_OPTION2_OS,5627157.500000,5735388.262500,5803742.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436507460,4932,0,test2_13thread_17k_OPTION2_OS,5620764.100000,5728646.912500,5827870.600000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436509876,7348,0,test2_13thread_17k_OPTION2_OS,5610813.500000,5720114.775000,5768927.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436510104,7576,0,test2_13thread_17k_OPTION2_OS,5652995.700000,5761843.125000,5861939.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436513536,11008,0,test2_13thread_17k_OPTION2_OS,5592341.400000,5763179.975000,5851060.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436515268,12740,0,test2_13thread_17k_OPTION2_OS,5571789.900000,5736352.962500,5853789.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436519840,17312,0,test2_13thread_17k_OPTION2_OS,5548413.000000,5737376.587500,5858230.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436521020,18492,0,test2_13thread_17k_OPTION2_OS,5550016.400000,5751422.037500,5848223.600000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436523608,21080,0,test2_13thread_17k_OPTION2_OS,5662740.800000,5750622.950000,5861132.900000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436526572,24044,0,test2_13thread_17k_OPTION2_OS,5527049.300000,5736921.062500,5900280.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444350656436526592,24064,0,test2_13thread_17k_OPTION2_OS,5629892.600000,5717941.237500,5798265.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601710159876452,20836,0,test2_13thread_17k_OPTION2_OS,5606134.600000,5696695.412500,5839437.600000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879333668,1316,0,test2_13thread_17k_OPTION2_OS,5632680.600000,5710382.087500,5843415.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879333868,1516,0,test2_13thread_17k_OPTION2_OS,5560239.200000,5690886.200000,5869807.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879336984,4632,0,test2_13thread_17k_OPTION2_OS,5653987.600000,5690689.550000,5732468.500000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879338148,5796,0,test2_13thread_17k_OPTION2_OS,5637058.000000,5684712.187500,5728237.500000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879339508,7156,0,test2_13thread_17k_OPTION2_OS,5644622.500000,5731769.375000,5861213.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879341812,9460,0,test2_13thread_17k_OPTION2_OS,5610294.400000,5694106.112500,5771242.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879343720,11368,0,test2_13thread_17k_OPTION2_OS,5569095.300000,5694444.137500,5914491.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879345520,13168,0,test2_13thread_17k_OPTION2_OS,5577970.700000,5671985.612500,5795294.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879348360,16008,0,test2_13thread_17k_OPTION2_OS,5552138.000000,5677583.262500,5769813.900000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879348388,16036,0,test2_13thread_17k_OPTION2_OS,5562356.400000,5694718.687500,5894770.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879352664,20312,0,test2_13thread_17k_OPTION2_OS,5555666.500000,5702347.237500,5782006.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444601778879355748,23396,0,test2_13thread_17k_OPTION2_OS,5571962.000000,5713625.537500,5815588.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851221989951900,2460,0,test2_13thread_17k_OPTION2_OS,5506146.900000,5663372.662500,5776509.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851221989962964,13524,0,test2_13thread_17k_OPTION2_OS,5558664.500000,5715921.150000,5856113.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851221989963028,13588,0,test2_13thread_17k_OPTION2_OS,5567018.700000,5696581.137500,5828086.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851290709427556,1380,0,test2_13thread_17k_OPTION2_OS,5546770.600000,5745284.337500,5851054.300000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851290709432252,6076,0,test2_13thread_17k_OPTION2_OS,5584314.900000,5676661.787500,5797751.300000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851290709440636,14460,0,test2_13thread_17k_OPTION2_OS,5596231.100000,5737015.137500,5839586.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851290709441876,15700,0,test2_13thread_17k_OPTION2_OS,5542224.600000,5698330.262500,5819608.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851290709443732,17556,0,test2_13thread_17k_OPTION2_OS,5518608.400000,5702902.612500,5795465.600000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851290709447096,20920,0,test2_13thread_17k_OPTION2_OS,5587610.200000,5713041.500000,5849760.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851290709449676,23500,0,test2_13thread_17k_OPTION2_OS,5543534.700000,5742757.775000,5888445.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851290709450056,23880,0,test2_13thread_17k_OPTION2_OS,5469123.200000,5718483.975000,5847717.600000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851290709450640,24464,0,test2_13thread_17k_OPTION2_OS,5557691.900000,5715397.350000,5849327.900000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1444851290709451156,24980,0,test2_13thread_17k_OPTION2_OS,5586466.200000,5718520.225000,5817221.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971489396,10868,0,test2_13thread_17k_OPTION2_OS,5497551.400000,5702686.350000,5884771.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971491004,12476,0,test2_13thread_17k_OPTION2_OS,5539891.000000,5726449.637500,5856984.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971491544,13016,0,test2_13thread_17k_OPTION2_OS,5605989.000000,5678501.812500,5758384.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971492852,14324,0,test2_13thread_17k_OPTION2_OS,5555063.900000,5666547.300000,5774449.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971495520,16992,0,test2_13thread_17k_OPTION2_OS,5559619.600000,5671510.387500,5759128.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971496176,17648,0,test2_13thread_17k_OPTION2_OS,5580766.300000,5668983.275000,5753902.900000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971496888,18360,0,test2_13thread_17k_OPTION2_OS,5631396.200000,5735095.600000,5877767.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971498836,20308,0,test2_13thread_17k_OPTION2_OS,5591887.200000,5676811.237500,5833357.500000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971500020,21492,0,test2_13thread_17k_OPTION2_OS,5548628.700000,5680100.537500,5736384.500000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971503012,24484,0,test2_13thread_17k_OPTION2_OS,5546285.400000,5685130.987500,5829820.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971503176,24648,0,test2_13thread_17k_OPTION2_OS,5536387.200000,5695416.712500,5798701.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971503440,24912,0,test2_13thread_17k_OPTION2_OS,5597593.500000,5738996.250000,5871355.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445101201971503744,25216,0,test2_13thread_17k_OPTION2_OS,5562716.000000,5677886.675000,5769339.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350310074650444,3916,0,test2_13thread_17k_OPTION2_OS,5552256.800000,5659597.900000,5789911.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350310074657636,11108,0,test2_13thread_17k_OPTION2_OS,5569430.000000,5690866.950000,5764272.500000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350378794126304,3040,0,test2_13thread_17k_OPTION2_OS,5490052.600000,5674523.475000,5855440.300000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350378794127760,4496,0,test2_13thread_17k_OPTION2_OS,5575784.700000,5670571.050000,5793281.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350378794129240,5976,0,test2_13thread_17k_OPTION2_OS,5520142.300000,5709552.275000,5867109.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350378794132584,9320,0,test2_13thread_17k_OPTION2_OS,5497321.400000,5664482.250000,5761261.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350378794133408,10144,0,test2_13thread_17k_OPTION2_OS,5593944.300000,5681528.712500,5787621.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350378794135764,12500,0,test2_13thread_17k_OPTION2_OS,5558097.900000,5657657.275000,5767359.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350378794137160,13896,0,test2_13thread_17k_OPTION2_OS,5562645.000000,5685242.037500,5788381.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350378794140728,17464,0,test2_13thread_17k_OPTION2_OS,5552633.800000,5667185.650000,5771324.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350378794144416,21152,0,test2_13thread_17k_OPTION2_OS,5564468.700000,5668852.737500,5768444.500000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350378794145872,22608,0,test2_13thread_17k_OPTION2_OS,5556929.600000,5673618.300000,5753412.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445350378794147340,24076,0,test2_13thread_17k_OPTION2_OS,5540484.300000,5677039.912500,5771719.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162918068,1716,0,test2_13thread_17k_OPTION2_OS,4997655.200000,5607574.037500,5826046.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162924388,8036,0,test2_13thread_17k_OPTION2_OS,5076002.500000,5607907.687500,5844745.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162924592,8240,0,test2_13thread_17k_OPTION2_OS,5038873.700000,5595386.437500,5776994.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162925384,9032,0,test2_13thread_17k_OPTION2_OS,5071753.300000,5607949.337500,5781328.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162926216,9864,0,test2_13thread_17k_OPTION2_OS,5076344.700000,5580621.775000,5881646.600000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162929660,13308,0,test2_13thread_17k_OPTION2_OS,5064560.200000,5622540.500000,5848483.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162931224,14872,0,test2_13thread_17k_OPTION2_OS,5011926.200000,5609001.000000,5819970.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162934812,18460,0,test2_13thread_17k_OPTION2_OS,5043475.500000,5599394.387500,5841040.500000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162937784,21432,0,test2_13thread_17k_OPTION2_OS,4913421.700000,5578816.412500,5890100.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162939272,22920,0,test2_13thread_17k_OPTION2_OS,5004955.900000,5609003.125000,5904499.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162939328,22976,0,test2_13thread_17k_OPTION2_OS,5028529.000000,5616100.350000,5905544.500000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162939876,23524,0,test2_13thread_17k_OPTION2_OS,5001566.200000,5586801.250000,5805031.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445598748162940372,24020,0,test2_13thread_17k_OPTION2_OS,4951373.700000,5604468.425000,5786090.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834168205333368,21368,0,test2_13thread_17k_OPTION2_OS,5601809.900000,5752445.050000,5886918.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629823892,2452,0,test2_13thread_17k_OPTION2_OS,5616199.400000,5751311.525000,5900717.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629824920,3480,0,test2_13thread_17k_OPTION2_OS,5644443.000000,5805553.825000,5877971.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629825156,3716,0,test2_13thread_17k_OPTION2_OS,5582205.600000,5760100.262500,5948165.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629830972,9532,0,test2_13thread_17k_OPTION2_OS,5625853.400000,5712369.175000,5773348.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629831884,10444,0,test2_13thread_17k_OPTION2_OS,5657943.600000,5734718.862500,5838246.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629832596,11156,0,test2_13thread_17k_OPTION2_OS,5678039.100000,5739285.625000,5814764.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629832884,11444,0,test2_13thread_17k_OPTION2_OS,5693733.800000,5782887.612500,5875776.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629834212,12772,0,test2_13thread_17k_OPTION2_OS,5671312.100000,5751789.512500,5888576.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629839384,17944,0,test2_13thread_17k_OPTION2_OS,5642987.400000,5760012.512500,5880562.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629841012,19572,0,test2_13thread_17k_OPTION2_OS,5674184.900000,5757721.462500,5857437.600000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629842852,21412,0,test2_13thread_17k_OPTION2_OS,5626286.800000,5731924.800000,5817357.900000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1445834232629846724,25284,0,test2_13thread_17k_OPTION2_OS,5644623.000000,5716453.175000,5859797.100000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087551836,2396,0,test2_13thread_17k_OPTION2_OS,5622556.600000,5738060.925000,5839187.400000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087553132,3692,0,test2_13thread_17k_OPTION2_OS,5657285.800000,5804993.225000,5880011.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087555408,5968,0,test2_13thread_17k_OPTION2_OS,5693188.500000,5761849.637500,5926937.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087558324,8884,0,test2_13thread_17k_OPTION2_OS,5718196.000000,5760646.525000,5799019.800000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087559296,9856,0,test2_13thread_17k_OPTION2_OS,5640624.800000,5768793.250000,5956066.500000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087563540,14100,0,test2_13thread_17k_OPTION2_OS,5575617.700000,5819982.687500,5991574.200000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087567304,17864,0,test2_13thread_17k_OPTION2_OS,5660895.100000,5757375.587500,5874996.500000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087568596,19156,0,test2_13thread_17k_OPTION2_OS,5636279.900000,5806406.862500,5964643.900000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087571148,21708,0,test2_13thread_17k_OPTION2_OS,5632398.000000,5794502.050000,5901012.700000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087571584,22144,0,test2_13thread_17k_OPTION2_OS,5621390.100000,5784405.937500,5932415.300000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087573536,24096,0,test2_13thread_17k_OPTION2_OS,5735960.000000,5783701.950000,5862835.000000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087573892,24452,0,test2_13thread_17k_OPTION2_OS,5650262.500000,5786901.800000,5900960.300000,10,
+,,,,,,,
+UniqueID,threadID,No,Name,Min(micro sec),Average(micro sec),Max(micro sec),Call Count
+1446086025087574844,25404,0,test2_13thread_17k_OPTION2_OS,5677896.800000,5792950.825000,5963068.200000,10,
+,,,,,,,
