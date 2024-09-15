@@ -186,7 +186,8 @@ void TLSPool<T>::releaseBlocks()
 		nextTail = nullptr;
 		releaseHead = head;
 
-		for (releaseSize = 1; head != tail; head = head->next, releaseSize++);
+		//for (releaseSize = 1; head != tail; head = head->next, releaseSize++);
+		releaseSize = size;
 	}
 
 	tail->next = nullptr;

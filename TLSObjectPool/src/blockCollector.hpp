@@ -21,14 +21,13 @@ MainPool<T>::blockCollector::blockCollector(MCCAPACITY capacity, MainPool<T>* ma
 template <typename T>
 MainPool<T>::blockCollector::~blockCollector()
 {
-	memoryBlock<T>* next;
+	memoryBlock<T>* next = head;
 
-	while (size-- != 0)
+	while (next != nullptr)
 	{
+		head = next->next;
+		delete next;
 		next = head;
-		next = next->next;
-		delete head;
-		head = next;
 	}
 }
 
@@ -36,35 +35,35 @@ template <typename T>
 bool MainPool<T>::blockCollector::collect(memoryBlock<T>* _head, memoryBlock<T>* _tail, MCCAPACITY _size)
 {
 	AcquireSRWLockExclusive(&lock);
+
 	if (head == nullptr) //콜렉터에 노드가 전혀 없을때 진입
-	{
 		head = _head;
-		tail = head;
-		size++;
-		_size--;
-	}
 	else
-	{
 		tail->next = _head;
-	}
 	
-	for (unsigned int i = 0; i < _size; i++)
+
+	tail = _tail;
+	size += _size;
+
+	if (size >= chunkCapacity)
 	{
-		if (size++ >= chunkCapacity)
-		{
-			chunkTail = tail;
-			tail = tail->next;
-			chunkTail->next = nullptr;
-			pool->releaseBlocks(head, chunkTail, chunkCapacity);
-			head = tail;
-			size -= chunkCapacity;
-		}
-		else
-		{
-			tail = tail->next;
-		}
+		memoryBlock<T>* releaseHead = head;
+		memoryBlock<T>* releaseTail = head;
+
+		for (MCCAPACITY i = 1; i < chunkCapacity; i++)
+			releaseTail = releaseTail->next;
+
+		
+		head = releaseTail->next;
+		releaseTail->next = nullptr;
+
+		pool->releaseBlocks(releaseHead, releaseTail, chunkCapacity); //temp2를 쓰는이유 : relase를 위해서 head를 먼저 넘기고,
+														 //밑에줄에서 head = temp->next를 한다면, temp가 어디선가 이미 사용되었을때, temp->next가 오염됨
+		size -= chunkCapacity;
 	}
+
 	ReleaseSRWLockExclusive(&lock);
+
 	return true;
 }
 

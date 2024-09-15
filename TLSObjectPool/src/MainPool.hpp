@@ -12,7 +12,7 @@ MainPool<T>& MainPool<T>::getInstance()
 template <typename T>
 void MainPool<T>::releaseBlocks(memoryBlock<T>* head, memoryBlock<T>* tail, MCCAPACITY size)
 {
-	if (size != info.chunkCapacity)
+	if (size < info.chunkCapacity)
 	{
 		collector.collect(head, tail, size);
 		return;

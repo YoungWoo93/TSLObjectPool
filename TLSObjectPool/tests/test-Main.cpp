@@ -265,7 +265,6 @@ void runTest1() {
 
 
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // test2
 //
@@ -351,8 +350,6 @@ void runTest2() {
 	if (testOption == 2)
 		test2Function<_17k_struct>();
 }
-
-
 
 
 
@@ -515,10 +512,98 @@ void runTest3() {
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// test4
+//
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <queue>
+queue<int*> test4Queue;
+SRWLOCK test4Lock;
+bool test4Flag = true;
+
+void test4LeakFunction()
+{
+	TLSObjectPool<int>::init(2, 1);
+
+	std::uniform_int_distribution<int> dist(1, 9);
+	int target = dist(rng);
+
+	for (int i = 0; i < target; i++)
+	{
+		AcquireSRWLockExclusive(&test4Lock);
+		test4Queue.push(TLSObjectPool<int>::alloc());
+		ReleaseSRWLockExclusive(&test4Lock);
+	}
+	Sleep(10);
+
+	TLSObjectPool<int>::release();
+}
 
 
+void test4CollcectFunction()
+{
+	TLSObjectPool<int>::init(1, 1);
 
+	TLSPool<int>* t = TLSObjectPool<int>::objectPool;
+	while (test4Flag)
+	{
+		AcquireSRWLockExclusive(&test4Lock);
+		while (!test4Queue.empty())
+		{
+			TLSObjectPool<int>::free(test4Queue.front());
+			test4Queue.pop();
+		}
+		ReleaseSRWLockExclusive(&test4Lock);
+	}
 
+	TLSObjectPool<int>::release();
+}
+
+MainPool<int>* test4Main;
+void test4Function()
+{
+	test4Main = &MainPool<int>::getInstance();
+	thread collectThread(test4CollcectFunction);
+	int testCycle = 2000;
+	vector<thread> threads;
+	for (int i = 0; i < 2000; i++)
+	{
+		cout << i << " / " << testCycle << endl;
+		cout << "\t useable : " << MainPool<int>::getInstance().usableSize() << endl;
+		cout << "\t using : " << MainPool<int>::getInstance().usingSize() << " / " << MainPool<int>::getInstance().collector.size << endl;
+		cout << endl;
+		threads.clear();
+
+		int threadSize = 1 + rand() % 10;
+		for (int j = 0; j < threadSize; j++)
+		{
+			threads.emplace_back(test4LeakFunction);
+		}
+
+		for (int j = 0; j < threadSize; j++)
+		{
+			if (threads[j].joinable())
+				threads[j].join();
+		}
+	}
+	
+	test4Flag = false;
+
+	collectThread.join();
+}
+
+int main(int argc, char* argv[])
+{
+	test4Function();
+
+	return 0;
+}
+
+/*/
 int main(int argc, char* argv[])
 {
 	parseArguments(argc, argv);
@@ -534,3 +619,5 @@ int main(int argc, char* argv[])
 	writeProfiles(GetResultFilePath() + fileName);
 	return 0;
 }
+
+/*/
