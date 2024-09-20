@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)tests/lib</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -125,7 +125,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)tests/lib</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,10 +143,15 @@
   <ItemGroup>
     <ClInclude Include="include\define.h" />
     <ClInclude Include="include\MainPool.h" />
+    <ClInclude Include="include\ObjectPoolManager.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="include\TLSPool.h" />
     <ClInclude Include="src\chunkCache.hpp" />
     <ClInclude Include="src\chunkStack.hpp" />
     <ClInclude Include="src\blockCollector.hpp" />
+    <ClInclude Include="src\ObjectPoolManager.hpp" />
     <ClInclude Include="tests\lib\profiler.h" />
     <ClInclude Include="tests\test-Main.h" />
     <ClInclude Include="TLSObjectPool.h" />

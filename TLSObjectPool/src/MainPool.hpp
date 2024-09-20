@@ -1,6 +1,6 @@
 #pragma once
+#include "../include/ObjectPoolManager.h"
 #include "../include/MainPool.h"
-
 
 template <typename T>
 MainPool<T>& MainPool<T>::getInstance()
@@ -9,6 +9,7 @@ MainPool<T>& MainPool<T>::getInstance()
 
 	return instance;
 }
+
 template <typename T>
 void MainPool<T>::releaseBlocks(memoryBlock<T>* head, memoryBlock<T>* tail, MCCAPACITY size)
 {
@@ -55,13 +56,51 @@ template <typename T>
 MainPool<T>::MainPool(MCCAPACITY chunkCapacity, MPOPTION mode) 
 	: emptyChunks(chunkCapacity), fillChunks(chunkCapacity), collector(chunkCapacity, this)
 {
+	lock = SRWLOCK_INIT;
+
 	info.chunkCapacity = chunkCapacity;
 	info.mode = mode;
 	info.poolPtr = this;
+
+	MemoryPoolManager::getInstance().registerMainPool(this);
 }
 template <typename T>
 MainPool<T>::~MainPool()
 {
 
 	// 메인풀의 소멸자 호출시점 = 프로세스 종료시점 이므로 생략
+}
+
+template <typename T>
+void MainPool<T>::init(MCCAPACITY chunkCapacity, MPOPTION mode)
+{
+	if (info.poolPtr == nullptr)
+	{
+		AcquireSRWLockExclusive(&lock);
+		if (info.poolPtr == nullptr)
+		{
+			emptyChunks.init(chunkCapacity);
+			fillChunks.init(chunkCapacity);
+			collector(chunkCapacity, this);
+
+			info.chunkCapacity = chunkCapacity;
+			info.mode = mode;
+			info.poolPtr = this;
+		}
+		ReleaseSRWLockExclusive(&lock);
+	}
+}
+
+template <typename T>
+int MainPool<T>::clear()
+{
+	int ret = 0;
+	// 이 시점에서 메모리 누수 체크 가능
+	ret += collector.clear();
+	ret += fillChunks.clear();
+	ret += emptyChunks.clear();
+
+	info.poolPtr = nullptr;
+
+	return ret;
 }

@@ -67,3 +67,38 @@ bool MainPool<T>::blockCollector::collect(memoryBlock<T>* _head, memoryBlock<T>*
 	return true;
 }
 
+
+
+template <typename T>
+void MainPool<T>::blockCollector::init(MCCAPACITY capacity, MainPool<T>* mainPool)
+{
+	size = 0;
+	chunkCapacity = capacity;
+	head = nullptr;
+	tail = nullptr;
+	pool = mainPool;
+	lock = SRWLOCK_INIT;
+
+	chunkTail = nullptr;
+}
+
+
+
+template <typename T>
+int MainPool<T>::blockCollector::clear()
+{
+	memoryBlock<T>* next = head;
+	int ret = 0;
+
+	while (next != nullptr)
+	{
+		head = next->next;
+		delete next;
+		ret += sizeof(T);
+		next = head;
+	}
+
+	return ret;
+}
+
+

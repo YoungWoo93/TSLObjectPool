@@ -589,6 +589,7 @@ void test4Function()
 			if (threads[j].joinable())
 				threads[j].join();
 		}
+		Sleep(500);
 	}
 	
 	test4Flag = false;

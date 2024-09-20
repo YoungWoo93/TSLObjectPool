@@ -78,6 +78,43 @@ void chunkStack<T>::push(memoryChunk<T>* chunk)
 }
 
 /// <summary>
+/// 락프리 스택의 clear 동작.
+/// 
+/// OS로 자원을 회수하는 기능을 지원하기 위해 추가됨
+/// </summary>
+template <typename T>
+int chunkStack<T>::clear() {
+	memoryChunk<T>* nextTop;
+	int ret = 0;
+
+	while (top != nullptr)
+	{
+		nextTop = top->next;
+
+		delete top;
+		ret += sizeof(T);
+		size--;
+		top = nextTop;
+	}
+
+	return ret;
+}
+
+/// <summary>
+/// 락프리 스택의 init 동작.
+/// 
+/// </summary>
+template <typename T>
+void chunkStack<T>::init(MCCAPACITY cap) 
+{
+	capacity = cap;
+	size = 0; 
+	top = nullptr; 
+	lock = SRWLOCK_INIT; 
+	pushNo = 0;
+};
+
+/// <summary>
 /// define.h에 정의된 SCALE 동작을 지원하기 위한 함수.
 /// </summary>
 /// <returns> 삭제된 노드 (= 청크) 의 갯수</returns>
@@ -155,46 +192,6 @@ int chunkStack<T>::releaseChunk(unsigned long long int idleTime)
 				delete target;
 			}
 			cur = cur->next;
-		}
-	}
-	ReleaseSRWLockExclusive(&lock);
-
-	return erasedCount;
-}
-
-/// <summary>
-/// define.h에 정의된 SCALE 동작을 지원하기 위한 함수.
-/// </summary>
-/// <returns> 삭제된 노드 (= 청크) 의 갯수</returns>
-template <typename T>
-int chunkStack<T>::releaseChunk(memoryChunk<T>* target)
-{
-	int erasedCount = 0;
-
-	AcquireSRWLockExclusive(&lock);
-	{
-		memoryChunk<T>* cur = top;
-		if (cur == target)
-		{
-			decSize();
-			erasedCount = 1;
-
-			top = cur->next;
-			target->~memoryChunk<T>();
-		}
-		else
-		{
-			while (cur != nullptr) {
-				if (cur->next == target) {
-					decSize();
-					erasedCount = 1;
-
-					cur->next = target->next;
-					target->~memoryChunk<T>();
-					break;
-				}
-				cur = cur->next;
-			}
 		}
 	}
 	ReleaseSRWLockExclusive(&lock);

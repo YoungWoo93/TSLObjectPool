@@ -46,6 +46,9 @@ TLSPool<T>::TLSPool(unsigned int maxChunks, unsigned int allocChunks) : mainPool
 	info = mainPool.info;
 	info.blockThreshold = maxChunks * info.chunkCapacity;
 	info.allocChunckUnit = allocChunks;
+	
+	if (InterlockedIncrement(&(mainPool.referenceCount)) == 1)
+		mainPool.releaseTick = ULLONG_MAX;
 
 #ifdef TLSPOOL_DEBUG
 	allocSize = 0;
@@ -63,6 +66,9 @@ TLSPool<T>::~TLSPool()
 {
 	while (size != 0)
 		releaseBlocks();
+
+	if (InterlockedDecrement(&(mainPool.referenceCount)) == 0)
+		mainPool.releaseTick = GetTickCount64();
 }
 
 

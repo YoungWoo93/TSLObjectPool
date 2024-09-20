@@ -121,12 +121,12 @@ struct memoryChunk
 
 
 struct poolInfo {
-	void* poolPtr;
+	void*					poolPtr;
 
-	MCCAPACITY	chunkCapacity;
-	MPOPTION	mode;
+	MCCAPACITY				chunkCapacity;
+	MPOPTION				mode;
 
-	unsigned short	allocChunckUnit;			//초기 할당시 몇개의 청크를 받아오나
+	unsigned short			allocChunckUnit;	//초기 할당시 몇개의 청크를 받아오나
 	unsigned long long int	blockThreshold;		//몇개 이상의 블록이 쌓여야 1청크씩 반환하는가
 };
 

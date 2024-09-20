@@ -20,13 +20,14 @@
 #include "include/define.h"
 #include "include/MainPool.h"
 #include "include/TLSPool.h"
+#include "include/ObjectPoolManager.h"
 
 #include "src/TLSPool.hpp"
 #include "src/chunkCache.hpp"
 #include "src/MainPool.hpp"
 #include "src/chunkStack.hpp"
 #include "src/blockCollector.hpp"
-
+#include "src/ObjectPoolManager.hpp"
 
 
 template <typename T>
@@ -86,6 +87,7 @@ private:
 	TLSObjectPool& operator=(const TLSObjectPool&) = delete;
 
 private:
+public:
 	static __declspec(thread) TLSPool<T>* objectPool;
 
 };
