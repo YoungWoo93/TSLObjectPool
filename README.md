@@ -2,25 +2,25 @@
 C++ library implementing an object pool using Thread Local Storage (TLS). Designed for x64 Windows platforms.
 
 ## 목차
-[1. 오브젝트 풀 구조](https://github.com/YoungWoo93/TSLObjectPool/edit/main/README.md#2-main-pool)
+[1. 오브젝트 풀 구조](https://github.com/YoungWoo93/TSLObjectPool/tree/main?tab=readme-ov-file#1-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80-%EA%B5%AC%EC%A1%B0)
 >  1) 전체 구조<br>
 >  2) main pool 구조<br>
 >  3) tls pool 구조<br>
   
-[2. main pool](https://github.com/YoungWoo93/TSLObjectPool/edit/main/README.md#2-main-pool)
+[2. main pool](https://github.com/YoungWoo93/TSLObjectPool/tree/main?tab=readme-ov-file#2-main-pool)
 >1) main pool 목적<br>
 >2) main pool 동작<br>
 >3) chunk stack<br>
 >4) block collector<br>
 >
 
-[3. tls pool](https://github.com/YoungWoo93/TSLObjectPool/edit/main/README.md#2-tls-pool)
+[3. tls pool](https://github.com/YoungWoo93/TSLObjectPool/tree/main?tab=readme-ov-file#3-tls-pool)
 >1) tls pool 목적<br>
 >2) tls pool 동작<br>
 >3) chunk cache<br>
 >
 
-[4. 성능 평가](https://github.com/YoungWoo93/TSLObjectPool/edit/main/README.md#4-%EC%84%B1%EB%8A%A5)
+[4. 성능 평가](https://github.com/YoungWoo93/TSLObjectPool/tree/main?tab=readme-ov-file#4-%EC%84%B1%EB%8A%A5%ED%8F%89%EA%B0%80)
 >
 >
 >
@@ -30,7 +30,7 @@ C++ library implementing an object pool using Thread Local Storage (TLS). Design
 
 ## 1. 오브젝트 풀 구조<br>
 #### 1) 전체 구조<br>
-> --이미지 1--
+> ![image01](https://github.com/user-attachments/assets/47e19cad-3f88-45b4-99b9-9c169ed53ebc)
 >   
 > 개별 스레드에서 메모리를 동적 할당 하는 것 이 아닌 메모리 할당, 반환을 전담하는 주체를 둔다.<br>
 > 커널 모드로의 전환 및 스레드간 바쁜 대기를 최소화 하기 위한 방법이다.<br>
@@ -47,7 +47,7 @@ C++ library implementing an object pool using Thread Local Storage (TLS). Design
 #### 2) main pool 구조<br>
 >  main pool은 템플릿 타입의 1개의 변수 메모리 (이하 블록, block)를 N개 묶은 템플릿 타입의 변수 덩어리 (이하 청크, chunk) 를 조작 단위로 사용한다.<br>  
 > <br>  
-> --이미지 2--<br>  
+> ![image02](https://github.com/user-attachments/assets/48b4d35e-4222-4f68-bb83-d02619fc6ccc)<br>  
 > <br>
 > chunk와 block은 다음과 위와 같은 구조로 되어있다.<br>  
 > block의 key(= poolPtr =next) 변수는 해당 block의 위치와 옵션에 따라 여러가지 정보를 의미 할 수 있다.<br>
@@ -59,7 +59,7 @@ C++ library implementing an object pool using Thread Local Storage (TLS). Design
 > capacity는 해당 청크에 담을 수 있는 최대 블록 갯수가 저장된다. <br>
 > <br>
 > <br>
-> --이미지3--<br>
+> ![image03](https://github.com/user-attachments/assets/631527d3-5bfe-4998-aaa3-c8c4f6ebeab0)<br>
 > <br>
 > main pool 내에는 위에서 나온 청크를 보관하는 스택이 2종개 존재한다. <br>
 > 이미 블록이 모두 차있는 청크를 다루는 fill chunk stack과 빈 청크를 다루는 empty chunk stack 이다. <br>
@@ -69,13 +69,13 @@ C++ library implementing an object pool using Thread Local Storage (TLS). Design
 #### 3) tls pool 구조<br>
 > tls pool은 각 스레드의 정적 tls공간을 이용하며, 실질적으로 개발자가 메모리를 받아오게 되는 객체이다. < br>
 > <br>
-> --이미지 4-- <br>
+> ![image04](https://github.com/user-attachments/assets/7f087b1c-3c3d-4c0b-9c03-5d0ae0d1db8d) <br>
 > <br>
 > tls pool 내에는 메모리 블록들을 사용하기 위한 포인터들과 메모리반환시 선형 탐색을 줄이기위한 장치들이 존재한다. <br>
 > 그중 chunkCache는 큐 형태로 동작하며, 선형 탐색을 줄이기 위한 핵심 아이디어가 들어간 객체이다.<br>
->
 > <br> 
-> --이미지 5-- <br>
+> 
+> ![image05](https://github.com/user-attachments/assets/41915ac8-58c0-4b6a-a0fd-eb536ef4ada4) <br>
 > <br>
 > chunkCache가 큐 형태라고는 하지만 STL 큐를 쓴다면 본 라이브러리의 의미가 조금 훼손된다고 생각하였다. <br>
 > 그래서 배열을 이용한 환형 큐 형태의 구조를 구현하였다. <br>
@@ -107,8 +107,9 @@ C++ library implementing an object pool using Thread Local Storage (TLS). Design
 <br>
 
 #### 3) chunk stack<br>
-><br>
-> --이미지 6--<br>
+> <br>
+
+> ![image06](https://github.com/user-attachments/assets/09bcc109-1a9c-46f6-8005-7a61322df090)<br>
 > <br>
 > 
 > chunk stack은 여러 스레드에서 동시에 메모리 할당 / 반환 요청이 올 것을 대비해야한다. <br>
@@ -125,8 +126,9 @@ C++ library implementing an object pool using Thread Local Storage (TLS). Design
 #### 4) block collector<br>
 > block collector는 1개의 청크를 충분히 채우지 못하는, 파편화된 블록을 모아 하나의 청크로 만드는 동작을 수행한다.<br>
 > 
-><br>
-> --이미지 7--<br>
+> <br>
+
+> ![image07](https://github.com/user-attachments/assets/a2df2440-f779-41b8-beb0-0b9add62f61d)<br>
 > <br>
 > 
 > block collector가 동작하는 상황은 크게 2가지가 있을 수 있다.<br>
@@ -163,7 +165,7 @@ C++ library implementing an object pool using Thread Local Storage (TLS). Design
 > 실제 사용자가 오브젝트 풀을 사용하데 필요한 기능들이 구현되어있다. <br>
 > 하지만 사용자가 직접 tls pool의 메소드를 호출하는 것을 바라지는 않았기 때문에 다음과 같은 인터페이스를 한층 두었다. <br>
 > <br>
-> -- 이미지 8--<br>
+> ![image08](https://github.com/user-attachments/assets/f4a70ca7-fcc0-48fc-929a-89d6ed9c38bd)<br>
 > <br>
 > 인터페이스로 노출된 메모리 할당 / 반환 동작 외에도 내부적으로 3가지 동작을 더 수행한다.<br>
 > <br>
@@ -183,7 +185,8 @@ C++ library implementing an object pool using Thread Local Storage (TLS). Design
 
 #### 3) chunk cache<br>
 > <br>
-> --이미지 9--<br>
+
+> ![image09](https://github.com/user-attachments/assets/78c641fa-ef42-4bfe-850d-5cee568e7fe8)<br>
 > <br>
 > 청크 캐시의 도입을 처음 생각한 것 자체는 단순히 '무의미한 선형 탐색을 줄이고 싶다' 는 생각에서 출발했다.<br>
 > 하지만 설계를 하던 도중 '대량의 선형 탐색이라는 것 자체가 캐시메모리를 갈아엎어 버리는 행위' 임을 깨닳았다. <br>
@@ -206,7 +209,7 @@ TEST 3 : 멀티 스레드 환경에서 할당 전담 스레드에서 할당한 �
 <br>
 <br>
 TEST1:<br>
---이미지 10--<br>
+![image10](https://github.com/user-attachments/assets/bc5905ec-83ac-417f-86da-1e7865cace0e)<br>
 <br>
 1번 테스트의 경우 windows의 LFH영역을 벗어날때 얼마나 오버헤드가 생기는지를 직접 눈으로 확인한다는 의미의 테스트였다.<br>
 LFH영역을 넘어서지 않더라도 다소 성능 차이가 발생하기 때문에, boost 또는 본 TLSObjectPool을 사용하는것이 효율적이라 생각 하였으며,<br>
@@ -214,21 +217,21 @@ LFH영역을 넘어서지 않더라도 다소 성능 차이가 발생하기 때�
 <br>
 <br>
 TEST2:<br>
---이미지 11--<br>
+![image11](https://github.com/user-attachments/assets/ccc80724-b5c2-434f-8391-3dd22e1fe1f1)<br>
 17K 크기의 데이터를 이용한 멀티스레드 환경에서의 경합을 테스트 하였다.<br>
 예상대로 OS의 경우 스레드간 경합이 지수적으로 증가함을 알 수 있었다. 하지만 boost의 경우 선형적 증가인지 명확하게 판단이 서지 않아 추가 테스트를 진행하였다.<br>
 <br>
---이미지 12--<br>
+![image12](https://github.com/user-attachments/assets/9f55549d-a306-4a90-888a-665b8953d46f)<br>
 boost의 경우에는 스레드가 증가함에 따라 아주 약간의 선형적 성능 감소가 있었다고 생각되는 결과였다.<br>
 <br>
---이미지 13--<br>
+![image13](https://github.com/user-attachments/assets/35058206-c003-4052-8dff-cf1a87d9fa7e)<br>
 추가적으로 LFH가 동작하는 상황에서는 예상외로 boost가 가장 효율이 좋지 않았다.<br>
 위에서 추측한 '약간의 선형적 성능 감소' 를 더욱 직접적으로 볼 수 있던 테스트였다.<br>
 boost는 내부적으로 스레드간 경합을 조절하는 기능이 분명 존재하지만, 해당 기능의 비용이 스레드 수에 비례한다는 간접적인 근거라고 생각한다.<br>
 <br>
 <br>
 TEST3:<br>
---이미지 14--<br>
+![image14](https://github.com/user-attachments/assets/a815f644-a398-4d46-ad5e-70854fc9397d)<br>
 마지막으로 위의 테스트 대비 실제 사용 환경에 유사하다고 생각되는 테스트를 진행하였다.<br>
 약간의 노이즈가 껴있지만 어느정도 예측 가능한 결과가 나왔다.<br>
 <br>
